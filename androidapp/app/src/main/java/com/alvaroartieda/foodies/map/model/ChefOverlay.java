@@ -23,22 +23,7 @@ import java.util.List;
 
 public class ChefOverlay extends OverlayItem {
 
-    public static class ChefInfo extends InfoWindow{
-
-        public ChefInfo(View v, MapView mapView) {
-            super(v, mapView);
-        }
-
-        @Override
-        public void onOpen(Object item) {
-
-        }
-
-        @Override
-        public void onClose() {
-
-        }
-    }
+    private Chef chef;
 
     public ChefOverlay(String aTitle, String aSnippet, IGeoPoint aGeoPoint) {
         super(aTitle, aSnippet, aGeoPoint);
@@ -48,27 +33,26 @@ public class ChefOverlay extends OverlayItem {
         super(aUid, aTitle, aDescription, aGeoPoint);
     }
 
-    public static ChefOverlay from(Chef chef, Activity activity, MapView mapView){
-        ChefOverlay chefOverlay = new ChefOverlay(chef.getName(),chef.getKitchenType().toString(),chef.getGeoPoint());
-        Marker marker = new Marker(mapView);
-        marker.setIcon(chef.getKitchenType().getIcon(activity));
-        View chefinfoView = activity.getLayoutInflater().inflate(R.layout.chefinfo_layer,null);
-        TextView priceChF = chefinfoView.findViewById(R.id.price);
-        priceChF.setText(String.format("%4.2f CHF",chef.getPrice()));
-        Button placeOrderButton = chefinfoView.findViewById(R.id.placeOrderBtn);
-        placeOrderButton.setOnClickListener((view)-> placeOrderButton.setText("ordered"));
-        ChefInfo chefInfo = new ChefInfo(chefinfoView,mapView);
-        marker.setInfoWindow(chefInfo);
-        chefOverlay.(marker);
+    public Chef getChef() {
+        return chef;
+    }
 
+    public void setChef(Chef chef) {
+        this.chef = chef;
+    }
+
+    public static ChefOverlay from(Chef chef, Activity activity){
+        ChefOverlay chefOverlay = new ChefOverlay(chef.getName(),chef.getKitchenType().toString(),chef.getGeoPoint());
+        chefOverlay.setMarker(chef.getKitchenType().getIcon(activity));
+        chefOverlay.setChef(chef);
         return chefOverlay;
     }
 
 
-    public static List<ChefOverlay> from(List<Chef> chefList, final Activity activity, MapView mapView){
+    public static List<ChefOverlay> from(List<Chef> chefList, final Activity activity){
         List<ChefOverlay> pois = new ArrayList<>();
         for(Chef chef :chefList){
-            pois.add(ChefOverlay.from(chef,activity,mapView));
+            pois.add(ChefOverlay.from(chef,activity));
         }
 
         return pois;

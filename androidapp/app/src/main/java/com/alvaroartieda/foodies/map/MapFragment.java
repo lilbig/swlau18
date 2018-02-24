@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.alvaroartieda.foodies.R;
 import com.alvaroartieda.foodies.map.model.Chef;
+import com.alvaroartieda.foodies.map.model.ChefItemizedOverlay;
 import com.alvaroartieda.foodies.map.model.ChefOverlay;
 import com.alvaroartieda.foodies.map.model.KitchenType;
 
@@ -21,11 +21,10 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
-import org.osmdroid.views.overlay.ItemizedOverlay;
 import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.MinimapOverlay;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
-
+import android.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +38,14 @@ public class MapFragment extends Fragment {
     private static final int MY_PERMISSIONS_REQUEST_FINE_LOCATION = 2;
     MapView map = null;
     private MyLocationNewOverlay myLocationoverlay;
-    private ItemizedOverlay<ChefOverlay> poiOverlay;
+    private ChefItemizedOverlay poiOverlay;
 
     public MapFragment() {
+    }
+
+    public static Fragment newInstance() {
+        MapFragment fragment = new MapFragment();
+        return fragment;
     }
 
     @Override
@@ -154,22 +158,22 @@ public class MapFragment extends Fragment {
             chefList.add(new Chef("San Francisco", KitchenType.JAPAN, new GeoPoint(46.514, 6.5827)));
             chefList.add(new Chef("Tolaga Bay", KitchenType.SUISSE, new GeoPoint(46.534, 6.542)));
 
-            final List<ChefOverlay> items = ChefOverlay.from(chefList,getActivity(), );
+            final List<ChefOverlay> items = ChefOverlay.from(chefList,getActivity());
 
 			/* OnTapListener for the Markers, shows a simple Toast. */
-            this.poiOverlay = new ItemizedIconOverlay<>(items,
+            this.poiOverlay = new ChefItemizedOverlay(items,
                     new ItemizedIconOverlay.OnItemGestureListener<ChefOverlay>() {
                         @Override
                         public boolean onItemSingleTapUp(final int index, final ChefOverlay item) {
                             map.getController().animateTo(item.getPoint());
-                            return true;
+                            return false;
                         }
 
                         @Override
                         public boolean onItemLongPress(final int index, final ChefOverlay item) {
                             return false;
                         }
-                    }, getActivity().getApplicationContext());
+                    }, getActivity().getApplicationContext(),getActivity());
             map.getOverlays().add(this.poiOverlay);
         }
 
