@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_brown">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="50dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="@string/who_are_you"
+            android:textColor="@color/colorWhite"
+            android:textSize="45dp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="50dp"
+            android:fontFamily="monospace"
+            android:gravity="left"
+            android:text="Name"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:inputType="text"
+            android:textColorHint="@color/colorWhite"
+            android:hint="@string/write_name"/>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
