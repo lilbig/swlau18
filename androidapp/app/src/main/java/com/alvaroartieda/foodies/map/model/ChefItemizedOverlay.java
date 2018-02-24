@@ -48,7 +48,7 @@ public class ChefItemizedOverlay extends ItemizedIconOverlay<ChefOverlay> {
         //set up dialog
         Dialog dialog = new Dialog(activity);
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(R.color.light_brown)));
         dialog.setContentView(R.layout.chefinfo_layer);
         //dialog.setTitle("This is my custom dialog box");
 
@@ -62,9 +62,9 @@ public class ChefItemizedOverlay extends ItemizedIconOverlay<ChefOverlay> {
         DownloadImageTask downloadImageTask = new DownloadImageTask(imageView);
         downloadImageTask.execute("https://loremflickr.com/200/200/food,"+chef.getKitchenType().toString().toLowerCase()+"/all");
 
-        TextView priceChF = dialog.findViewById(R.id.price);
-        priceChF.setText(String.format("%4.2f CHF",chef.getPrice()));
+
         Button placeOrderButton = dialog.findViewById(R.id.placeOrderBtn);
+        placeOrderButton.setText(String.format("%4.2f CHF",chef.getPrice()));
         placeOrderButton.setOnClickListener((view)-> placeOrderButton.setText("ordered"));
 
         //now that the dialog is set up, it's time to show it
