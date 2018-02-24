@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/light_brown">
 
     <LinearLayout
@@ -10,15 +11,18 @@
         android:layout_height="wrap_content">
 
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profilePic"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="@dimen/fab_margin"/>
+                android:layout_margin="@dimen/fab_margin"
+                android:src="@drawable/picture_profile"
+                />
 
 
 
         <TextView
+            android:id="@+id/userNameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -78,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="1"
-        android:id="@+id/button_chef"
+        android:id="@+id/proceedWithOrder"
         android:background="@drawable/mybutton"
         android:textColor="@color/light_brown"
         android:text="CHEF"
