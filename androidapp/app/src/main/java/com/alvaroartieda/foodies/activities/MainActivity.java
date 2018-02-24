@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         boolean restoredUser = prefs.getBoolean(ALREADY_USER, false);
 
-        restoredUser = false;
+        // restoredUser = false;
 
         if(!restoredUser){
             getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, WhoAreYouFragment.newInstance()).commit();

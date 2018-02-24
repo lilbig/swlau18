@@ -27,6 +27,7 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 import android.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 
 /**
@@ -39,6 +40,7 @@ public class MapFragment extends Fragment {
     MapView map = null;
     private MyLocationNewOverlay myLocationoverlay;
     private ChefItemizedOverlay poiOverlay;
+    private volatile CountDownLatch permissionsBarier = new CountDownLatch(2);
 
     public MapFragment() {
     }
@@ -62,9 +64,6 @@ public class MapFragment extends Fragment {
         mapController.setZoom(16);
         GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
         mapController.setCenter(startPoint);
-        askForPermissionToExternalSD(Manifest.permission.WRITE_EXTERNAL_STORAGE, MY_PERMISSIONS_REQUEST_WRITE_SD);
-        askForPermissionToExternalSD(Manifest.permission.ACCESS_FINE_LOCATION, MY_PERMISSIONS_REQUEST_FINE_LOCATION);
-
 
         return layout;
     }
@@ -72,10 +71,14 @@ public class MapFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        map.onResume();
-        setLocation();
-        createPoiOverlay();
+        permissionsBarier = new CountDownLatch(2);
+        askForPermissionToExternalSD(Manifest.permission.WRITE_EXTERNAL_STORAGE, MY_PERMISSIONS_REQUEST_WRITE_SD);
+        askForPermissionToExternalSD(Manifest.permission.ACCESS_FINE_LOCATION, MY_PERMISSIONS_REQUEST_FINE_LOCATION);
+        if (permissionsBarier.getCount() == 0) {
+            map.onResume();
+            setLocation();
+            createPoiOverlay();
+        }
     }
 
 
@@ -102,7 +105,7 @@ public class MapFragment extends Fragment {
                         reqCode);
             }
         } else {
-
+            permissionsBarier.countDown();
         }
     }
 
@@ -114,7 +117,7 @@ public class MapFragment extends Fragment {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // show map
+                    permissionsBarier.countDown();
                 } else {
                     // show error
                 }
@@ -123,7 +126,7 @@ public class MapFragment extends Fragment {
             case MY_PERMISSIONS_REQUEST_FINE_LOCATION:{
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // set location
+                    permissionsBarier.countDown();
                 } else {
                     // leave it to the user
                 }
