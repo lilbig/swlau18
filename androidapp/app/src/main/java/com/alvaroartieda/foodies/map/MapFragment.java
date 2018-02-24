@@ -1,12 +1,10 @@
 package com.alvaroartieda.foodies.map;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.preference.PreferenceManager;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +13,11 @@ import android.view.ViewGroup;
 import com.alvaroartieda.foodies.R;
 
 import org.osmdroid.api.IMapController;
-import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -26,7 +25,9 @@ import org.osmdroid.views.MapView;
 public class MapFragment extends Fragment {
 
     private static final int MY_PERMISSIONS_REQUEST_WRITE_SD = 1;
+    private static final int MY_PERMISSIONS_REQUEST_FINE_LOCATION = 2;
     MapView map = null;
+    private MyLocationNewOverlay myLocationoverlay;
 
     public MapFragment() {
     }
@@ -42,17 +43,20 @@ public class MapFragment extends Fragment {
         map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
         IMapController mapController = map.getController();
-        mapController.setZoom(9);
+        mapController.setZoom(16);
         GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
         mapController.setCenter(startPoint);
+        askForPermissionToExternalSD(Manifest.permission.WRITE_EXTERNAL_STORAGE, MY_PERMISSIONS_REQUEST_WRITE_SD);
+        askForPermissionToExternalSD(Manifest.permission.ACCESS_FINE_LOCATION, MY_PERMISSIONS_REQUEST_FINE_LOCATION);
         return layout;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        askForPermissionToExternalSD();
+
         map.onResume();
+        setLocation();
     }
 
     @Override
@@ -61,34 +65,23 @@ public class MapFragment extends Fragment {
         map.onPause();
     }
 
-    private void askForPermissionToExternalSD(){
+    private void askForPermissionToExternalSD(String permission, Integer reqCode){
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(getActivity(),
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                permission)
                 != PackageManager.PERMISSION_GRANTED) {
-
             // Permission is not granted
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-
+                    permission)) {
             } else {
-
                 // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                        MY_PERMISSIONS_REQUEST_WRITE_SD);
-
-                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
-                // app-defined int constant. The callback method gets the
-                // result of the request.
+                        new String[]{permission},
+                        reqCode);
             }
         } else {
-            // Permission has already been granted
+
         }
     }
 
@@ -100,20 +93,36 @@ public class MapFragment extends Fragment {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    // permission was granted, yay! Do the
-                    // contacts-related task you need to do.
-
+                    // show map
                 } else {
-
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
+                    // show error
                 }
-                return;
+                break;
+            }
+            case MY_PERMISSIONS_REQUEST_FINE_LOCATION:{
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // set location
+                } else {
+                    // leave it to the user
+                }
             }
 
-            // other 'case' lines to check for other
-            // permissions this app might request.
+
         }
+    }
+
+    private void setLocation(){
+        // My Location Overlay
+        myLocationoverlay = new MyLocationNewOverlay(map);
+        myLocationoverlay.enableMyLocation();
+        myLocationoverlay.setDrawAccuracyEnabled(true);
+        map.getOverlayManager().add(myLocationoverlay);
+
+        myLocationoverlay.runOnFirstFix(new Runnable() {
+            public void run() {
+                map.getController().animateTo(myLocationoverlay.getMyLocation());
+            }
+        });
     }
 }
