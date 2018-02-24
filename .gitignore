@@ -1,2 +1,4 @@
 */.gradle
 */.idea
+androidapp/build
+androidapp/androidapp.iml
