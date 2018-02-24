@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alvaroartieda.foodies.R;
+import com.alvaroartieda.foodies.fragments.ProfileFragment;
 
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.ItemizedOverlay;
@@ -65,7 +66,8 @@ public class ChefItemizedOverlay extends ItemizedIconOverlay<ChefOverlay> {
 
         Button placeOrderButton = dialog.findViewById(R.id.placeOrderBtn);
         placeOrderButton.setText(String.format("%4.2f CHF",chef.getPrice()));
-        placeOrderButton.setOnClickListener((view)-> placeOrderButton.setText("ordered"));
+        placeOrderButton.setOnClickListener((view)-> activity.getFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, ProfileFragment.newInstance()).commit());
 
         //now that the dialog is set up, it's time to show it
         dialog.show();
