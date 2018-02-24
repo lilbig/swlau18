@@ -9,14 +9,24 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.alvaroartieda.foodies.R;
+import com.alvaroartieda.foodies.map.model.Chef;
 
 import org.osmdroid.api.IMapController;
+import org.osmdroid.events.MapEventsReceiver;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.ItemizedIconOverlay;
+import org.osmdroid.views.overlay.ItemizedOverlay;
+import org.osmdroid.views.overlay.MapEventsOverlay;
+import org.osmdroid.views.overlay.MinimapOverlay;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,6 +38,7 @@ public class MapFragment extends Fragment {
     private static final int MY_PERMISSIONS_REQUEST_FINE_LOCATION = 2;
     MapView map = null;
     private MyLocationNewOverlay myLocationoverlay;
+    private ItemizedOverlay<Chef> poiOverlay;
 
     public MapFragment() {
     }
@@ -48,6 +59,8 @@ public class MapFragment extends Fragment {
         mapController.setCenter(startPoint);
         askForPermissionToExternalSD(Manifest.permission.WRITE_EXTERNAL_STORAGE, MY_PERMISSIONS_REQUEST_WRITE_SD);
         askForPermissionToExternalSD(Manifest.permission.ACCESS_FINE_LOCATION, MY_PERMISSIONS_REQUEST_FINE_LOCATION);
+
+
         return layout;
     }
 
@@ -57,7 +70,10 @@ public class MapFragment extends Fragment {
 
         map.onResume();
         setLocation();
+        createPoiOverlay();
     }
+
+
 
     @Override
     public void onPause() {
@@ -124,5 +140,57 @@ public class MapFragment extends Fragment {
                 map.getController().animateTo(myLocationoverlay.getMyLocation());
             }
         });
+    }
+
+    private void createPoiOverlay() {
+        /* Itemized Overlay */
+        {
+			/* Create a static ItemizedOverlay showing a some Markers on some cities. */
+            final ArrayList<Chef> items = new ArrayList<>();
+            items.add(new Chef("Hannover", "SampleDescription", new GeoPoint(46.525, 6.512612)));
+            items.add(new Chef("Berlin", "SampleDescription", new GeoPoint(46.524, 6.55231)));
+            items.add(new Chef("Washington", "SampleDescription", new GeoPoint(46.517, 6.5925)));
+            items.add(new Chef("San Francisco", "SampleDescription", new GeoPoint(46.514, 6.5827)));
+            items.add(new Chef("Tolaga Bay", "SampleDescription", new GeoPoint(46.534, 6.542)));
+
+			/* OnTapListener for the Markers, shows a simple Toast. */
+            this.poiOverlay = new ItemizedIconOverlay<>(items,
+                    new ItemizedIconOverlay.OnItemGestureListener<Chef>() {
+                        @Override
+                        public boolean onItemSingleTapUp(final int index, final Chef item) {
+                            return true; // We 'handled' this event.
+                        }
+
+                        @Override
+                        public boolean onItemLongPress(final int index, final Chef item) {
+                            return false;
+                        }
+                    }, getActivity().getApplicationContext());
+            map.getOverlays().add(this.poiOverlay);
+        }
+
+		/* MiniMap */
+        {
+            final MinimapOverlay miniMapOverlay = new MinimapOverlay(getActivity(),
+                    map.getTileRequestCompleteHandler());
+            this.map.getOverlays().add(miniMapOverlay);
+        }
+
+		/* list of items currently displayed */
+        {
+            final MapEventsReceiver mReceive = new MapEventsReceiver() {
+                @Override
+                public boolean singleTapConfirmedHelper(GeoPoint p) {
+                    return false;
+                }
+
+                @Override
+                public boolean longPressHelper(final GeoPoint p) {
+                    final List<Chef> displayed = poiOverlay.getDisplayedItems();
+                    return true;
+                }
+            };
+            map.getOverlays().add(new MapEventsOverlay(mReceive));
+        }
     }
 }
