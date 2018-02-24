@@ -2,16 +2,13 @@ package com.alvaroartieda.foodies.map;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.alvaroartieda.foodies.R;
 import com.alvaroartieda.foodies.map.model.Chef;
@@ -157,14 +154,15 @@ public class MapFragment extends Fragment {
             chefList.add(new Chef("San Francisco", KitchenType.JAPAN, new GeoPoint(46.514, 6.5827)));
             chefList.add(new Chef("Tolaga Bay", KitchenType.SUISSE, new GeoPoint(46.534, 6.542)));
 
-            final List<ChefOverlay> items = ChefOverlay.from(chefList,getActivity());
+            final List<ChefOverlay> items = ChefOverlay.from(chefList,getActivity(), );
 
 			/* OnTapListener for the Markers, shows a simple Toast. */
             this.poiOverlay = new ItemizedIconOverlay<>(items,
                     new ItemizedIconOverlay.OnItemGestureListener<ChefOverlay>() {
                         @Override
                         public boolean onItemSingleTapUp(final int index, final ChefOverlay item) {
-                            return true; // We 'handled' this event.
+                            map.getController().animateTo(item.getPoint());
+                            return true;
                         }
 
                         @Override
