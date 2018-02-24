@@ -66,8 +66,10 @@ public class ChefItemizedOverlay extends ItemizedIconOverlay<ChefOverlay> {
 
         Button placeOrderButton = dialog.findViewById(R.id.placeOrderBtn);
         placeOrderButton.setText(String.format("%4.2f CHF",chef.getPrice()));
-        placeOrderButton.setOnClickListener((view)-> activity.getFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer, ProfileFragment.newInstance()).commit());
+        placeOrderButton.setOnClickListener((view)-> {
+            dialog.dismiss();
+            activity.getFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, ProfileFragment.newInstance()).commit();});
 
         //now that the dialog is set up, it's time to show it
         dialog.show();

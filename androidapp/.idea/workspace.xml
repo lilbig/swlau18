@@ -20,9 +20,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/DialogPicture.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/DialogPicture.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_pictures.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_pictures.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/WhoAreYouFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/WhoAreYouFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/map/model/ChefItemizedOverlay.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/map/model/ChefItemizedOverlay.java" />
     </list>
     <list id="98a3e1ed-3e69-4e7a-8b54-aad1ec136449" name="no commit" comment="no commit" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,77 +71,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DialogPicture.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/DialogPicture.java">
+      <file leaf-file-name="WhoAreYouFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/WhoAreYouFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="50" column="99" lean-forward="false" selection-start-line="50" selection-start-column="99" selection-end-line="50" selection-end-column="99" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="55" />
+            <state relative-caret-position="452">
+              <caret line="84" column="103" lean-forward="false" selection-start-line="84" selection-start-column="103" selection-end-line="84" selection-end-column="103" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout_dialog_pictures.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_pictures.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="ChefItemizedOverlay.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/map/model/ChefItemizedOverlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+            <state relative-caret-position="316">
+              <caret line="69" column="29" lean-forward="false" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/activities/ProfileActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="120" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="120" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/activities/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout_profile.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_profile.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="-398">
-              <caret line="40" column="39" lean-forward="false" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-              <folding>
-                <element signature="e#586#605#0" expanded="true" />
-                <element signature="e#1709#1728#0" expanded="true" />
-                <element signature="e#2505#2524#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1963,14 +1907,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-v24/mybutton.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_whoareyou.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_splash.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/WhoAreYouFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/SpecialityFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_picture_location.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/map/MapFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/activities/ProfileActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_profile.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/map/model/ChefItemizedOverlay.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_speciality.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/PictureLocation.java" />
@@ -1978,6 +1920,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/DialogPicture.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_pictures.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/WhoAreYouFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/map/model/ChefItemizedOverlay.java" />
       </list>
     </option>
   </component>
@@ -2546,7 +2490,7 @@
       <option name="ACTIVITY_CLASS" value="com.alvaroartieda.foodies.activities.Splash" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519508921309" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519509195531" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -2619,7 +2563,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519508921309" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519509195531" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2667,7 +2611,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519508921309" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519509195531" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2850,7 +2794,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519508921311" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519509195532" />
       </method>
     </configuration>
     <list size="2">
@@ -2921,7 +2865,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519508691370</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="UPDATED: dialog picture view callback">
+      <created>1519508934129</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1519508934129</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3023,7 +2974,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/lilbig/swlau18&#10;&#10;# Conflicts:&#10;#&#9;androidapp/.gradle/4.1/fileHashes/fileHashes.bin&#10;#&#9;androidapp/.gradle/4.1/fileHashes/fileHashes.lock&#10;#&#9;androidapp/.gradle/4.1/fileHashes/resourceHashesCache.bin&#10;#&#9;androidapp/.gradle/4.1/javaCompile/classAnalysis.bin&#10;#&#9;androidapp/.gradle/4.1/javaCompile/javaCompile.lock&#10;#&#9;androidapp/.gradle/4.1/javaCompile/taskHistory.bin&#10;#&#9;androidapp/.gradle/4.1/javaCompile/taskJars.bin&#10;#&#9;androidapp/.gradle/4.1/taskHistory/fileSnapshots.bin&#10;#&#9;androidapp/.gradle/4.1/taskHistory/taskHistory.bin&#10;#&#9;androidapp/.gradle/4.1/taskHistory/taskHistory.lock&#10;#&#9;androidapp/.idea/workspace.xml" />
     <MESSAGE value="FIXED: button issue" />
     <MESSAGE value="UPDATED: dialog picture view" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATED: dialog picture view" />
+    <MESSAGE value="UPDATED: dialog picture view callback" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATED: dialog picture view callback" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3271,30 +3223,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/ProfileFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="25" column="56" lean-forward="true" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/map/model/ChefItemizedOverlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="69" column="88" lean-forward="false" selection-start-line="69" selection-start-column="88" selection-end-line="69" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/WhoAreYouFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
@@ -3416,14 +3344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/activities/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="120" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="120" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/DialogPicture.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -3441,6 +3361,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/ProfileFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="25" column="56" lean-forward="false" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/activities/ProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="24" column="120" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="120" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/fragments/WhoAreYouFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="84" column="103" lean-forward="false" selection-start-line="84" selection-start-column="103" selection-end-line="84" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alvaroartieda/foodies/map/model/ChefItemizedOverlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="69" column="29" lean-forward="false" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
           <folding />
         </state>
       </provider>

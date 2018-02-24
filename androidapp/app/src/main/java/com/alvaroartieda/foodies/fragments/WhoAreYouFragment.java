@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.alvaroartieda.foodies.R;
+import com.alvaroartieda.foodies.map.MapFragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -81,6 +82,7 @@ public class WhoAreYouFragment extends Fragment {
                     prefs.edit().putString(USER, name).apply();
                     prefs.edit().putString(DESCRIPTION, name).apply();
                     prefs.edit().putString(PROFILE_TYPE, "G").apply();
+                    getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, MapFragment.newInstance()).commit();
 
                 }
             }
