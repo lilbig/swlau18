@@ -48,7 +48,7 @@ public class DialogPicture extends DialogFragment {
         }
 
         keepButton.setOnClickListener(viewButton -> {
-            getFragmentManager().popBackStack();
+            getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, PictureLocation.newInstance()).commit();
         });
 
         return view;
