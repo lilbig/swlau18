@@ -1,0 +1,254 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_brown">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="@string/text_speciality"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp" />
+        
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+            
+            <Button
+                android:id="@+id/button_italian"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mybutton"
+                android:textColor="@color/light_brown"
+                android:textSize="18dp"
+                android:layout_alignParentStart="true"
+                android:text="Italian"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+            <EditText
+                android:id="@+id/price_italian"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:textColor="@color/colorWhite"
+                android:inputType="number"
+                android:layout_marginEnd="10dp"
+                android:textColorHint="@color/colorWhite"
+                android:hint="@string/price"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp"
+                android:textStyle="italic"
+                android:text="CHF"/>
+            </LinearLayout>
+
+            
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_moroccan"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/mybutton"
+                android:textColor="@color/light_brown"
+                android:textSize="18dp"
+                android:text="moroccan"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+                <EditText
+                    android:id="@+id/price_maroc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:textColor="@color/colorWhite"
+                    android:inputType="number"
+                    android:layout_marginEnd="10dp"
+                    android:textColorHint="@color/colorWhite"
+                    android:hint="@string/price"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    android:text="CHF"/>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_swiss"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mybutton"
+                android:textColor="@color/light_brown"
+                android:textSize="18dp"
+                android:layout_alignParentStart="true"
+                android:text="Swiss"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+                <EditText
+                    android:id="@+id/price_swiss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:textColor="@color/colorWhite"
+                    android:inputType="number"
+                    android:layout_marginEnd="10dp"
+                    android:textColorHint="@color/colorWhite"
+                    android:hint="@string/price"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    android:text="CHF"/>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_american"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mybutton"
+                android:textColor="@color/light_brown"
+                android:textSize="18dp"
+                android:layout_alignParentStart="true"
+                android:text="American"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+                <EditText
+                    android:id="@+id/price_american"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:textColor="@color/colorWhite"
+                    android:inputType="number"
+                    android:layout_marginEnd="10dp"
+                    android:textColorHint="@color/colorWhite"
+                    android:hint="@string/price"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    android:text="CHF"/>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_peruvian"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mybutton"
+                android:textColor="@color/light_brown"
+                android:textSize="18dp"
+                android:layout_alignParentStart="true"
+                android:text="Peruvian"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+                <EditText
+                    android:id="@+id/price_peruvian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:textColor="@color/colorWhite"
+                    android:inputType="number"
+                    android:layout_marginEnd="10dp"
+                    android:textColorHint="@color/colorWhite"
+                    android:hint="@string/price"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    android:text="CHF"/>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        
+        
+    </LinearLayout>
+    
+</RelativeLayout>

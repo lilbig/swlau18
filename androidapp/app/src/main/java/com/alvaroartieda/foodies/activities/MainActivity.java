@@ -28,11 +28,9 @@ public class MainActivity extends AppCompatActivity {
         boolean restoredUser = prefs.getBoolean(ALREADY_USER, false);
 
         if(!restoredUser){
-            //getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, WhoAreYouFragment.newInstance()).commit();
-            getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, MapFragment.newInstance()).commit();
+            getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, WhoAreYouFragment.newInstance()).commit();
         }else{
-            // getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, ProfileFragment.newInstance()).commit();
-            getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, MapFragment.newInstance()).commit();
+            getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, ProfileFragment.newInstance()).commit();
         }
 
 

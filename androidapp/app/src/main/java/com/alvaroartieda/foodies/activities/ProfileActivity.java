@@ -22,10 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         //SharedPreferences prefs = getSharedPreferences(MY_PREFERENCES, MODE_PRIVATE);
 
-        //getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, WhoAreYouFragment.newInstance()).commit();
-        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, MapFragment.newInstance()).commit();
-
-
+        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, ProfileFragment.newInstance()).commit();
 
     }
 }
