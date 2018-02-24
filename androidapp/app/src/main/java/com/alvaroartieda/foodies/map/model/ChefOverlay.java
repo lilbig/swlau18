@@ -1,21 +1,29 @@
 package com.alvaroartieda.foodies.map.model;
 
 import android.app.Activity;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.alvaroartieda.foodies.R;
 
 import org.osmdroid.api.IGeoPoint;
+import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.OverlayItem;
+import org.osmdroid.views.overlay.infowindow.InfoWindow;
+import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by radu on 24/02/2018.
  */
 
 public class ChefOverlay extends OverlayItem {
+
+    private Chef chef;
 
     public ChefOverlay(String aTitle, String aSnippet, IGeoPoint aGeoPoint) {
         super(aTitle, aSnippet, aGeoPoint);
@@ -25,9 +33,18 @@ public class ChefOverlay extends OverlayItem {
         super(aUid, aTitle, aDescription, aGeoPoint);
     }
 
+    public Chef getChef() {
+        return chef;
+    }
+
+    public void setChef(Chef chef) {
+        this.chef = chef;
+    }
+
     public static ChefOverlay from(Chef chef, Activity activity){
         ChefOverlay chefOverlay = new ChefOverlay(chef.getName(),chef.getKitchenType().toString(),chef.getGeoPoint());
         chefOverlay.setMarker(chef.getKitchenType().getIcon(activity));
+        chefOverlay.setChef(chef);
         return chefOverlay;
     }
 

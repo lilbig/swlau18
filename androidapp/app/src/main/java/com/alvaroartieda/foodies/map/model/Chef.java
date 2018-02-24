@@ -12,6 +12,7 @@ public class Chef {
     private String name;
     private KitchenType kitchenType;
     private GeoPoint geoPoint;
+    private Double price = 10.0;
 
     public Chef(String name, KitchenType kitchenType, GeoPoint geoPoint) {
         this.name = name;
@@ -41,5 +42,13 @@ public class Chef {
 
     public void setGeoPoint(GeoPoint geoPoint) {
         this.geoPoint = geoPoint;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
