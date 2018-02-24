@@ -7,32 +7,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:fontFamily="monospace"
             android:gravity="center"
             android:text="@string/who_are_you"
             android:textColor="@color/colorWhite"
-            android:textSize="45dp" />
+            android:textSize="40dp" />
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="50dp"
-            android:fontFamily="monospace"
-            android:gravity="left"
-            android:text="Name"
-            android:textColor="@color/colorWhite"
-            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/edit_name"
@@ -43,9 +32,53 @@
             android:textColorHint="@color/colorWhite"
             android:hint="@string/write_name"/>
 
-
+        <EditText
+            android:id="@+id/edit_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:inputType="text"
+            android:maxLines="8"
+            android:textColorHint="@color/colorWhite"
+            android:hint="@string/write_description"/>
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:layout_centerVertical="true">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:id="@+id/button_chef"
+            android:background="@drawable/mybutton"
+            android:textColor="@color/light_brown"
+            android:text="CHEF"
+            android:textSize="18dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:id="@+id/button_gourmand"
+            android:background="@drawable/mybutton"
+            android:textColor="@color/light_brown"
+            android:textSize="18dp"
+            android:text="GOURMAND"/>
+
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>
