@@ -31,7 +31,7 @@
             
             <Button
                 android:id="@+id/button_italian"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/mybutton"
                 android:textColor="@color/light_brown"
@@ -52,7 +52,8 @@
                 android:inputType="number"
                 android:layout_marginEnd="10dp"
                 android:textColorHint="@color/colorWhite"
-                android:hint="@string/price"/>
+                android:hint="@string/price"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,7 +77,7 @@
 
             <Button
                 android:id="@+id/button_moroccan"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:background="@drawable/mybutton"
@@ -120,7 +121,7 @@
 
             <Button
                 android:id="@+id/button_swiss"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/mybutton"
                 android:textColor="@color/light_brown"
@@ -165,7 +166,7 @@
 
             <Button
                 android:id="@+id/button_american"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/mybutton"
                 android:textColor="@color/light_brown"
@@ -210,7 +211,7 @@
 
             <Button
                 android:id="@+id/button_peruvian"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/mybutton"
                 android:textColor="@color/light_brown"

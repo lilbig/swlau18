@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.alvaroartieda.foodies.R;
@@ -21,6 +22,7 @@ public class DialogPicture extends DialogFragment {
     private ImageView profilepic;
     private ImageView mealpic;
     private ImageView location;
+    private Button keepButton;
 
     public static DialogFragment newInstance(int a) {
         DialogPicture fragment = new DialogPicture();
@@ -35,6 +37,7 @@ public class DialogPicture extends DialogFragment {
         profilepic = view.findViewById(R.id.profile_pic);
         mealpic = view.findViewById(R.id.meal_pic);
         location = view.findViewById(R.id.location_pic);
+        keepButton = view.findViewById(R.id.keepPictureBtn);
 
         if(choice == 1){
             profilepic.setVisibility(View.VISIBLE);
@@ -43,6 +46,10 @@ public class DialogPicture extends DialogFragment {
         } else if(choice == 3){
             location.setVisibility(View.VISIBLE);
         }
+
+        keepButton.setOnClickListener(viewButton -> {
+            getFragmentManager().popBackStack();
+        });
 
         return view;
     }

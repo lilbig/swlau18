@@ -18,6 +18,7 @@ public class PictureLocation extends Fragment {
     private Button buttonProfile;
     private Button buttonMeal;
     private Button buttonLocation;
+    private Button buttonValidate;
 
     public static PictureLocation newInstance() {
         PictureLocation fragment = new PictureLocation();
@@ -32,6 +33,8 @@ public class PictureLocation extends Fragment {
         buttonProfile = view.findViewById(R.id.button_profile_pic);
         buttonMeal = view.findViewById(R.id.button_speciality);
         buttonLocation = view.findViewById(R.id.button_location);
+        buttonValidate = view.findViewById(R.id.button_validation);
+
 
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +54,13 @@ public class PictureLocation extends Fragment {
             @Override
             public void onClick(View view) {
                 getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, DialogPicture.newInstance(3)).commit();
+            }
+        });
+
+        buttonValidate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, ProfileFragment.newInstance()).commit();
             }
         });
 
