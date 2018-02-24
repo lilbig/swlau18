@@ -1,19 +1,45 @@
 package com.alvaroartieda.foodies.map.model;
 
 import org.osmdroid.api.IGeoPoint;
+import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.overlay.OverlayItem;
 
 /**
  * Created by radu on 24/02/2018.
  */
 
-public class Chef extends OverlayItem{
+public class Chef {
+    private String name;
+    private KitchenType kitchenType;
+    private GeoPoint geoPoint;
 
-    public Chef(String aTitle, String aSnippet, IGeoPoint aGeoPoint) {
-        super(aTitle, aSnippet, aGeoPoint);
+    public Chef(String name, KitchenType kitchenType, GeoPoint geoPoint) {
+        this.name = name;
+        this.kitchenType = kitchenType;
+        this.geoPoint = geoPoint;
     }
 
-    public Chef(String aUid, String aTitle, String aDescription, IGeoPoint aGeoPoint) {
-        super(aUid, aTitle, aDescription, aGeoPoint);
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public KitchenType getKitchenType() {
+        return kitchenType;
+    }
+
+    public void setKitchenType(KitchenType kitchenType) {
+        this.kitchenType = kitchenType;
+    }
+
+    public GeoPoint getGeoPoint() {
+        return geoPoint;
+    }
+
+    public void setGeoPoint(GeoPoint geoPoint) {
+        this.geoPoint = geoPoint;
     }
 }

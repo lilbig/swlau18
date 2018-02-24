@@ -2,7 +2,9 @@ package com.alvaroartieda.foodies.map;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 
 import com.alvaroartieda.foodies.R;
 import com.alvaroartieda.foodies.map.model.Chef;
+import com.alvaroartieda.foodies.map.model.ChefOverlay;
+import com.alvaroartieda.foodies.map.model.KitchenType;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.events.MapEventsReceiver;
@@ -38,7 +42,7 @@ public class MapFragment extends Fragment {
     private static final int MY_PERMISSIONS_REQUEST_FINE_LOCATION = 2;
     MapView map = null;
     private MyLocationNewOverlay myLocationoverlay;
-    private ItemizedOverlay<Chef> poiOverlay;
+    private ItemizedOverlay<ChefOverlay> poiOverlay;
 
     public MapFragment() {
     }
@@ -146,23 +150,25 @@ public class MapFragment extends Fragment {
         /* Itemized Overlay */
         {
 			/* Create a static ItemizedOverlay showing a some Markers on some cities. */
-            final ArrayList<Chef> items = new ArrayList<>();
-            items.add(new Chef("Hannover", "SampleDescription", new GeoPoint(46.525, 6.512612)));
-            items.add(new Chef("Berlin", "SampleDescription", new GeoPoint(46.524, 6.55231)));
-            items.add(new Chef("Washington", "SampleDescription", new GeoPoint(46.517, 6.5925)));
-            items.add(new Chef("San Francisco", "SampleDescription", new GeoPoint(46.514, 6.5827)));
-            items.add(new Chef("Tolaga Bay", "SampleDescription", new GeoPoint(46.534, 6.542)));
+            final ArrayList<Chef> chefList = new ArrayList<>();
+            chefList.add(new Chef("Hannover", KitchenType.AMERICAN, new GeoPoint(46.525, 6.512612)));
+            chefList.add(new Chef("Berlin", KitchenType.INDIAN, new GeoPoint(46.524, 6.55231)));
+            chefList.add(new Chef("Washington", KitchenType.ITALIEN, new GeoPoint(46.517, 6.5925)));
+            chefList.add(new Chef("San Francisco", KitchenType.JAPAN, new GeoPoint(46.514, 6.5827)));
+            chefList.add(new Chef("Tolaga Bay", KitchenType.SUISSE, new GeoPoint(46.534, 6.542)));
+
+            final List<ChefOverlay> items = ChefOverlay.from(chefList,getActivity());
 
 			/* OnTapListener for the Markers, shows a simple Toast. */
             this.poiOverlay = new ItemizedIconOverlay<>(items,
-                    new ItemizedIconOverlay.OnItemGestureListener<Chef>() {
+                    new ItemizedIconOverlay.OnItemGestureListener<ChefOverlay>() {
                         @Override
-                        public boolean onItemSingleTapUp(final int index, final Chef item) {
+                        public boolean onItemSingleTapUp(final int index, final ChefOverlay item) {
                             return true; // We 'handled' this event.
                         }
 
                         @Override
-                        public boolean onItemLongPress(final int index, final Chef item) {
+                        public boolean onItemLongPress(final int index, final ChefOverlay item) {
                             return false;
                         }
                     }, getActivity().getApplicationContext());
@@ -186,7 +192,7 @@ public class MapFragment extends Fragment {
 
                 @Override
                 public boolean longPressHelper(final GeoPoint p) {
-                    final List<Chef> displayed = poiOverlay.getDisplayedItems();
+                    final List<ChefOverlay> displayed = poiOverlay.getDisplayedItems();
                     return true;
                 }
             };
