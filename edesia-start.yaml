@@ -14,11 +14,13 @@ services:
       - database2
     depends_on:
       - database2
+
   
   
   database2:
     image: mysql
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: edesia
+
+

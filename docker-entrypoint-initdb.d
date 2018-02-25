@@ -10,8 +10,8 @@ CREATE TABLE users (
 ); 
 
 CREATE TABLE command (
-    id int NOT NULL AUTO_INCREMENT,
-    from int,
-    to int,
+    oreder_id int NOT NULL AUTO_INCREMENT,
+    from_id int,
+    to_id int,
     status varchar(255)
 ); 
