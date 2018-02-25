@@ -10,6 +10,7 @@ var mysql = require('mysql');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var orders = require('./routes/orders');
 var ejs =  require('ejs')
 
 var app = express();
@@ -23,15 +24,15 @@ var options = { //specify options
 
 
 var connection = mysql.createConnection({
-  host: 'localhost',
+  host: 'database2',
   user: 'root',
   password: 'password',
   database: 'edesia'
 });
 
 connection.connect(function(err) {
-  if (err) throw err
-  console.log('You are now connected...')
+  if (err) console.log(err);
+  console.log('You are now connected...');
 });
 
 
@@ -53,6 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/orders', orders);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -69,7 +71,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send('error');
 });
 
 module.exports = app;
