@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,9 +76,22 @@ public class MapFragment extends Fragment {
         askForPermissionToExternalSD(Manifest.permission.WRITE_EXTERNAL_STORAGE, MY_PERMISSIONS_REQUEST_WRITE_SD);
         askForPermissionToExternalSD(Manifest.permission.ACCESS_FINE_LOCATION, MY_PERMISSIONS_REQUEST_FINE_LOCATION);
         if (permissionsBarier.getCount() == 0) {
+            Log.d("Permissions","all are here");
             map.onResume();
             setLocation();
             createPoiOverlay();
+        }else{
+             new Thread(()->{
+                 try {
+                     permissionsBarier.await();
+                 } catch (InterruptedException e) {
+                     Log.d("Interrupted","interrupted");
+                 }
+                 Log.d("Permissions","finally all are here");
+                 map.onResume();
+                 setLocation();
+                 createPoiOverlay();
+             }).start();
         }
     }
 
