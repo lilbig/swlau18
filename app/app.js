@@ -4,12 +4,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var instantMongoCrud = require('express-mongo-crud'); // require the module
+
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var ejs =  require('ejs')
 
 var app = express();
+
+var options = { //specify options
+
+    host: `localhost:3000`
+
+}
+
+mongoose.connect('database:27017/mongocrud');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +38,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(instantMongoCrud(options));
 
 app.use('/', index);
 app.use('/users', users);
