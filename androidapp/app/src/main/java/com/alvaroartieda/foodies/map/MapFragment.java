@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alvaroartieda.foodies.R;
-import com.alvaroartieda.foodies.map.model.Chef;
+import com.alvaroartieda.foodies.model.Chef;
 import com.alvaroartieda.foodies.map.model.ChefItemizedOverlay;
 import com.alvaroartieda.foodies.map.model.ChefOverlay;
 import com.alvaroartieda.foodies.map.model.KitchenType;

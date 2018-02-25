@@ -6,10 +6,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,13 +15,11 @@ import android.widget.TextView;
 
 import com.alvaroartieda.foodies.R;
 import com.alvaroartieda.foodies.fragments.ProfileFragment;
+import com.alvaroartieda.foodies.model.Chef;
 
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
-import org.osmdroid.views.overlay.ItemizedOverlay;
-import org.osmdroid.views.overlay.OverlayItem;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

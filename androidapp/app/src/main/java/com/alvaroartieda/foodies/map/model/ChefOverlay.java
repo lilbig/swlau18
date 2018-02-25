@@ -1,18 +1,11 @@
 package com.alvaroartieda.foodies.map.model;
 
 import android.app.Activity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.alvaroartieda.foodies.R;
+import com.alvaroartieda.foodies.model.Chef;
 
 import org.osmdroid.api.IGeoPoint;
-import org.osmdroid.views.MapView;
-import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.OverlayItem;
-import org.osmdroid.views.overlay.infowindow.InfoWindow;
-import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow;
 
 import java.util.ArrayList;
 import java.util.List;
