@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -32,6 +33,8 @@ public class ProfileFragment extends Fragment {
     private Button proceedBtn;
     private TextView userNameTxt;
     private RatingBar ratingBar;
+    private ImageButton logoutBtn;
+    private SharedPreferences prefs;
 
     public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
@@ -45,8 +48,10 @@ public class ProfileFragment extends Fragment {
         proceedBtn = view.findViewById(R.id.proceedWithOrder);
         userNameTxt = view.findViewById(R.id.userNameTxt);
         ratingBar = view.findViewById(R.id.ratingBar);
+        logoutBtn = view.findViewById(R.id.logoutBtn);
 
-        SharedPreferences prefs = getActivity().getSharedPreferences(MY_PREFERENCES, MODE_PRIVATE);
+
+       prefs = getActivity().getSharedPreferences(MY_PREFERENCES, MODE_PRIVATE);
 
         userNameTxt.setText(prefs.getString(USER,"Jon Doe"));
         ratingBar.setRating(3.0f + new Random().nextInt(50) / 25.0f);
@@ -61,6 +66,14 @@ public class ProfileFragment extends Fragment {
                     getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, MapFragment.newInstance()).commit());
         }
 
+        logoutBtn.setOnClickListener((viewBtn)->{
+            logoutUser();
+            getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, WhoAreYouFragment.newInstance()).commit();
+        });
         return view;
+    }
+
+    private void logoutUser() {
+        prefs.edit().clear().commit();
     }
 }
